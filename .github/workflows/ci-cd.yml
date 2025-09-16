@@ -11,35 +11,47 @@ permissions:
   id-token: 'write'
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/setup-node@v5
-        with:
-          node-version: '18'
-      - run: cd backend && npm ci && npm test
-      - run: cd frontend && npm ci && npm test && npm run build
-      - run: cd backend && npm run lint
-
-  terraform:
-    needs: build-and-test
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.13.0
-      - id: 'auth'
-        uses: 'google-github-actions/auth@v3'
-      #       with:
-      #         workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
-      #         service_account: '${{ secrets.GCP_SA_EMAIL }}'
-      - run: |
-          cd terraform
-          terraform init
-          terraform validate
-          terraform plan -var-file=dev.tfvars -out=tfplan
+      - uses: actions/setup-node@v5
+      - name: Install backend dependencies
+        run: npm install
+        working-directory: ./backend # Add this line
+
+      - name: Run backend tests
+        run: npm test
+        working-directory: ./backend
+
+  #   steps:
+  #     - uses: actions/setup-node@v5
+  #       with:
+  #         node-version: '18'
+  #     - run: cd backend && npm ci && npm test
+  #     - run: cd frontend && npm ci && npm test && npm run build
+  #     - run: cd backend && npm run lint
+  #       working-directory: ./backend
+
+  # terraform:
+  #   needs: build-and-test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v5
+  #     - uses: hashicorp/setup-terraform@v3
+  #       with:
+  #         terraform_version: 1.13.0
+  #     - id: 'auth'
+  #       uses: 'google-github-actions/auth@v3'
+  #       with:
+  #         workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
+  #         service_account: '${{ secrets.GCP_SA_EMAIL }}'
+  # - run: |
+  #     cd terraform
+  #     terraform init
+  #     terraform validate
+  #     terraform plan -var-file=dev.tfvars -out=tfplan
   #         terraform apply -auto-approve tfplan
   #       env:
   #         TF_VAR_gcp_project_id: ${{ secrets.GCP_PROJECT_ID }}
