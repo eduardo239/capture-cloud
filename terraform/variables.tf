@@ -1,11 +1,25 @@
 variable "project_id" {
   description = "Project ID"
   type = string
-  default = "learn-gcp-terraform-469711"
 }
-
 variable "region" {
   description = "GCP region"
   type = string
-  default = "us-central1"
+}
+# Sql instance details
+variable "sql_username" {
+  description = "username"
+  type = string
+}
+variable "sql_password" {
+  description = "password"
+  type = string
+}
+variable "sql_database" {
+  description = "database"
+  type = string
+}
+variable "db_instance_type" {
+  description = "instance type"
+  type = string
 }
