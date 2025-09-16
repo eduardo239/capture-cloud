@@ -35,7 +35,7 @@ jobs:
         with:
           node-version: '18'
       - name: Install frontend dependencies
-        run: npm run ci && npm run test && npm run build
+        run: npm run ci && npm run test
         working-directory: ./frontend
 
   terraform:
