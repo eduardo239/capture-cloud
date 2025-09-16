@@ -1,39 +1,70 @@
-# Local .terraform directories
-**/.terraform/*
+# Backend (Express.js)
+backend/node_modules/
+backend/npm-debug.log
+backend/yarn-error.log
+backend/yarn.lock
+backend/package-lock.json
+backend/.env
+backend/.env.local
+backend/.env.development.local
+backend/.env.test.local
+backend/.env.production.local
+backend/dist/
+backend/build/
+backend/coverage/
+backend/logs/
+backend/*.log
+backend/*.log.*
+backend/*.tmp
+backend/*.temp
+backend/*.swp
+backend/*.tsbuildinfo  # TypeScript build info (if using TypeScript in backend)
 
-# .tfstate files
-*.tfstate
-*.tfstate.*
+# Frontend (Vite + React + TypeScript)
+frontend/node_modules/
+frontend/npm-debug.log
+frontend/yarn-error.log
+frontend/yarn.lock
+frontend/package-lock.json
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/dist/          # Vite build output
+frontend/dist-ssr/      # Vite SSR build output
+frontend/coverage/      # Test coverage
+frontend/.vite/         # Vite cache
+frontend/*.log
+frontend/*.log.*
+frontend/*.tsbuildinfo  # TypeScript build info
+frontend/vite.config.ts.timestamp*  # Vite config timestamps
 
-# Crash log files
-crash.log
-crash.*.log
+# Terraform
+terraform/.terraform/       # Terraform state and plugins
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.*
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+terraform/.terraform.tfvars
+terraform/plan.out
+terraform/plan.cache
+terraform/.terragrunt-cache/
+terraform/.lock.info
 
-# Exclude all .tfvars files, which may contain sensitive data
-*.tfvars
-*.tfvars.json
-
-# Ignore override files
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
-
-# Include specific override files you want to commit
-# !example_override.tf
-
-# Ignore plan output files
-*tfplan*
-
-# Ignore CLI configuration files
-.terraformrc
-terraform.rc
-
-# Ignore lock file (optional, see note below)
-# .terraform.lock.hcl
-
-# Ignore macOS-specific files
+# General
 .DS_Store
-
-# Ignore backup files
-*.bak
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+secrets/
+credentials/
+*.key
+*.pem
