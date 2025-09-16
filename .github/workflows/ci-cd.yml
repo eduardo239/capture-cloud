@@ -23,7 +23,7 @@ jobs:
         working-directory: ./backend
 
       - name: Run backend tests
-        run: npm ci && npm test && npm run lint
+        run: npm run ci && npm test && npm run lint
         working-directory: ./backend
 
   frontend:
