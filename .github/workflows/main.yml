@@ -26,7 +26,7 @@ jobs:
       node-version: '18'
 
   terraform:
-    needs: backend
-    uses: ./.github/workflows/frontend.yml
+    needs: [backend, frontend]
+    uses: ./.github/workflows/terraform.yml
     with:
       working-directory: ./terraform
