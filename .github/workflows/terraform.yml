@@ -30,3 +30,4 @@ jobs:
 
       - name: Terraform Validate
         run: terraform plan
+        working-directory: ${{ inputs.working-directory }}
