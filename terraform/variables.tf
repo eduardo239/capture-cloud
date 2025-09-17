@@ -8,18 +8,18 @@ variable "region" {
 }
 # Sql instance details
 variable "sql_username" {
-  description = "username"
+  description = "SQL Username"
   type = string
 }
 variable "sql_password" {
-  description = "password"
+  description = "SQL Password"
   type = string
 }
 variable "sql_database" {
-  description = "database"
+  description = "SQL database"
   type = string
 }
 variable "db_instance_type" {
-  description = "instance type"
+  description = "Database Instance Type"
   type = string
 }
