@@ -1,0 +1,32 @@
+# .github/workflows/reusable_build.yml
+name: Reusable Node.js Build
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        required: true
+        type: string
+      node-version:
+        required: true
+        type: string
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js ${{ inputs.node-version }}
+        uses: actions/setup-node@v5
+        with:
+          node-version: '${{ inputs.node-version }}'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ${{ inputs.working-directory }}
+
+      - name: Build and test
+        run: npm run ci
+        working-directory: ${{ inputs.working-directory }}
