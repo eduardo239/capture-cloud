@@ -29,10 +29,7 @@ jobs:
         working-directory: ${{ inputs.working-directory }}
 
       - name: Decode tfvars
-        run: |
-          echo "${{ secrets.TFVARS_BASE64 }}" | base64 -d > dev.tfvars
-          # For JSON, you would use:
-          # echo "${{ secrets.TFVARS_BASE64 }}" | base64 -d > config.json
+        run: echo "${{ secrets.TFVARS_BASE64 }}" | base64 -d > dev.tfvars
         working-directory: ${{ inputs.working-directory }}
 
       - name: Terraform Validate
