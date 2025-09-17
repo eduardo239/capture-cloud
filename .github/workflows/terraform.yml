@@ -9,7 +9,7 @@ on:
         type: string
 
 jobs:
-  initialize-and-apply:
+  init-validate-plan:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -28,5 +28,5 @@ jobs:
         run: terraform init
         working-directory: ${{ inputs.working-directory }}
 
-      # - name: Terraform Validate
-      #   run: terraform plan -var-file=dev.tfvars -out=tfplan
+      - name: Terraform Validate
+        run: terraform plan

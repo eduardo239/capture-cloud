@@ -12,7 +12,7 @@ on:
         type: string
 
 jobs:
-  build-and-test:
+  install-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
