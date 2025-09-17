@@ -48,6 +48,7 @@ terraform/terraform.tfstate.*
 terraform/*.tfstate
 terraform/*.tfstate.*
 terraform/*.tfvars
+terraform/*.tfvars.json
 terraform/.terraform.tfvars
 terraform/plan.out
 terraform/plan.cache

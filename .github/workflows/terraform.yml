@@ -28,6 +28,12 @@ jobs:
         run: terraform init
         working-directory: ${{ inputs.working-directory }}
 
+      - name: Decode tfvars
+        run: |
+          echo "${{ secrets.TFVARS_BASE64 }}" | base64 -d > dev.tfvars
+          # For JSON, you would use:
+          echo "${{ secrets.CONFIG_JSON_BASE64 }}" | base64 -d > config.json
+
       - name: Terraform Validate
-        run: terraform plan
+        run: terraform plan -var-file=dev.tfvars
         working-directory: ${{ inputs.working-directory }}
