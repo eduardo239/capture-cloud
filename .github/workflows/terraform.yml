@@ -12,11 +12,8 @@ jobs:
   initialize-and-apply:
     runs-on: ubuntu-latest
     steps:
-      - name: Test Secret
-        run: echo ${{ secrets.TEST }} 123
-
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Authenticate with Google Cloud
         uses: google-github-actions/auth@v3
