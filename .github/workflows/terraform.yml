@@ -2,7 +2,11 @@
 name: Terraform workflows
 
 on:
-  pull_request:
+  workflow_call:
+    inputs:
+      working-directory:
+        required: true
+        type: string
 
 jobs:
   terraform:
