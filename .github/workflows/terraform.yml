@@ -31,7 +31,10 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: terraform init -migrate-state
 
       - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
         run: terraform plan -var-file=dev.tfvars -out=tfplan
