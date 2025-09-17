@@ -1,5 +1,5 @@
 # .github/workflows/reusable_build.yml
-name: Terraform
+name: Terraform workflows
 
 on:
   pull_request:

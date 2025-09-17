@@ -18,13 +18,13 @@ jobs:
       working-directory: ./backend
 
   frontend:
-    needs: backend
+    # needs: backend
     uses: ./.github/workflows/frontend.yml
     with:
       working-directory: ./frontend
 
   terraform:
-    needs: backend
+    # needs: [backend, frontend]
     uses: ./.github/workflows/frontend.yml
     with:
       working-directory: ./terraform
