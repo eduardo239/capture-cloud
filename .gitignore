@@ -9,7 +9,7 @@ backend/.env.local
 backend/.env.development.local
 backend/.env.test.local
 backend/.env.production.local
-backend/dist/
+backend/dist/ # Vite build output
 backend/build/
 backend/coverage/
 backend/logs/
