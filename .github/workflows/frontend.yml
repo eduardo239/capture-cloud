@@ -1,5 +1,5 @@
 # .github/workflows/reusable_build.yml
-name: Frontend
+name: Frontend workflow
 
 on:
   workflow_call:
