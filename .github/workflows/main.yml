@@ -7,9 +7,6 @@ on:
   pull_request:
     branches: [main, dev]
 
-env:
-  NODE_VERSION: '18'
-
 permissions:
   contents: 'read'
   id-token: 'write'
@@ -19,14 +16,14 @@ jobs:
     uses: ./.github/workflows/backend.yml
     with:
       working-directory: ./backend
-      node-version: ${{ env.NODE_VERSION }}
+      node-version: '18'
 
   frontend:
     needs: backend
     uses: ./.github/workflows/frontend.yml
     with:
       working-directory: ./frontend
-      node-version: ${{ env.NODE_VERSION }}
+      node-version: '18'
 
   terraform:
     needs: backend
