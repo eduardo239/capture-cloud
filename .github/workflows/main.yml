@@ -25,6 +25,6 @@ jobs:
 
   terraform:
     # needs: [backend, frontend]
-    uses: ./.github/workflows/frontend.yml
+    uses: ./.github/workflows/terraform.yml
     with:
       working-directory: ./terraform
