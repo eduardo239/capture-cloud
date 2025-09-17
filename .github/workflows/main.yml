@@ -1,11 +1,7 @@
 # .github/workflows/main.yml
 name: CI/CD Pipeline
 
-on:
-  push:
-    branches: [main, dev]
-  pull_request:
-    branches: [main, dev]
+on: [push]
 
 permissions:
   contents: 'read'
