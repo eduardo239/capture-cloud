@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test Secret
-        run: echo ${{ secrets.TEST_SECRET }}
+        run: echo ${{ secrets.TEST }}
 
       - name: Checkout code
         uses: actions/checkout@v5
