@@ -16,14 +16,12 @@ jobs:
     uses: ./.github/workflows/backend.yml
     with:
       working-directory: ./backend
-      node-version: '18'
 
   frontend:
     needs: backend
     uses: ./.github/workflows/frontend.yml
     with:
       working-directory: ./frontend
-      node-version: '18'
 
   terraform:
     needs: backend
