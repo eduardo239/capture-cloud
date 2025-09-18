@@ -2,7 +2,8 @@ const amqp = require('amqplib');
 
 async function connectQueue() {
   try {
-    const connection = await amqp.connect('amqp://rabbitmq');
+    // docker // const connection = await amqp.connect('amqp://rabbitmq');
+    const connection = await amqp.connect('amqp://localhost');
     const channel = await connection.createChannel();
 
     const queue = 'tasks';

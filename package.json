@@ -1,0 +1,27 @@
+{
+  "name": "full-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run start",
+    "client": "cd frontend && npm run dev",
+    "start": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardo239/capture-cloud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/eduardo239/capture-cloud/issues"
+  },
+  "homepage": "https://github.com/eduardo239/capture-cloud#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

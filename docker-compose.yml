@@ -3,7 +3,7 @@ services:
     build: ./frontend
     container_name: frontend
     ports:
-      - '5173:5173' # vite dev mode
+      - '5173:5173'
     environment:
       - VITE_API_URL=http://backend:5000
     depends_on:
@@ -25,6 +25,7 @@ services:
       - postgres
     networks:
       - app-network
+
   postgres:
     image: postgres:16-alpine
     container_name: postgres
