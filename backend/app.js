@@ -5,6 +5,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const pool = require('./db');
+const expressListEndpoints = require('express-list-endpoints');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -17,8 +18,8 @@ app.set('view engine', 'jade');
 
 app.use((req, res, next) => {
   const apiKey = req.headers['x-api-key'];
+  console.log(apiKey);
   if (apiKey && apiKey === 'sua-chave-secreta-aqui') {
-    console.log(apiKey + ' - Acesso permitido.');
     next();
   } else {
     res.status(401).json({ error: 'Acesso não autorizado.' });
@@ -36,10 +37,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api', indexRouter);
+app.use('/api/users', usersRouter);
 
-app.get('/', async (req, res) => {
+app.get('/db', async (req, res) => {
   const result = await pool.query('SELECT NOW()');
   res.json(result.rows[0]);
 });
@@ -63,5 +64,8 @@ app.use(function (err, req, res, next) {
 });
 
 //  mq = await connectQueue();
+
+const endpoints = expressListEndpoints(app);
+console.log(endpoints);
 
 module.exports = app;

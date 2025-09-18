@@ -14,8 +14,8 @@ services:
   backend:
     build: ./backend
     container_name: backend
-    # ports:
-    #   - '5000:5000'
+    ports:
+      - '5000:5000'
     # não expor a porta do backend para evitar ataques de DDoS
     # frontend se comunica com o backend através de uma URL fixa
     environment:

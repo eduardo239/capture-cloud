@@ -1,0 +1,29 @@
+###
+
+POST http://localhost:5000/api/send HTTP/1.1
+x-api-key: sua-chave-secreta-aqui
+content-type: application/json
+
+{
+  "task": "Sample task"
+}
+
+###
+
+GET http://localhost:5000/api HTTP/1.1
+x-api-key: sua-chave-secreta-aqui
+
+###
+
+GET http://localhost:5000/api/users HTTP/1.1
+x-api-key: sua-chave-secreta-aqui
+
+###
+
+# POST http://localhost:5000/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "sample",
+#     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+# }
