@@ -15,7 +15,21 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(cors());
+app.use((req, res, next) => {
+  const apiKey = req.headers['x-api-key'];
+  if (apiKey && apiKey === 'sua-chave-secreta-aqui') {
+    console.log(apiKey + ' - Acesso permitido.');
+    next();
+  } else {
+    res.status(401).json({ error: 'Acesso não autorizado.' });
+  }
+});
+
+app.use(
+  cors({
+    origin: 'http://localhost:5173', // URL do frontend no desenvolvimento
+  })
+);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
